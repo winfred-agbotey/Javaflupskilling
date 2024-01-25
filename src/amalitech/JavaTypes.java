@@ -22,7 +22,8 @@ public class JavaTypes {
         //Topic "variables"
         //Variables Declaration & Assignment
         //Remember you can assign variables in one line as well: int age=30,temperature=20
-        int age=30;
+        int age=30;//in the machine memmory the jvm allocates 4 bytes
+        //byte myFatherAge=30;//the best
         //Assign a new number to check if the number in the memory changes
         age=35;
         System.out.println(age);
@@ -35,16 +36,16 @@ public class JavaTypes {
         //Slide #3: Primitive Types - Stores Simple Values - Reference Type Stores Complex Objects
         /**
          * byte takes 1 byte of memory-values range is [-127,127]
-         * short takes 2 bytes of memory - values range is[-31k,32k]
+         * short takes 2 bytes of memory - values range is[-32k,32k]
          * int takes 4 bytes of memory - values range is[-2B,2B]
          * long takes 8 bytes of memory - values range is [-2B,2B]
          * float takes 4 bytes of memory - values range is [-2B,2B]
          * double takes 8 bytes of memory - values range is [-2B,2B]
-         * char takes 4 bytes of memory
+         * char takes 2 bytes of memory
          * boolean takes 1 byte of memory
          */
 
-        byte myFatherAge=30;
+        byte myFatherAge=12;
         //remember when adding a bigger number above 2B, 3_123_456_789,then the compiler fires a bug due to memory size allocation issue
         int viewsCount=123_456_789;
         //Remember: by default java compiler only recognizes a decimal number as a double, when using a float we need to tell the compiler to understand by adding F or f
@@ -72,13 +73,15 @@ public class JavaTypes {
         byte x=1;
         byte y=x;
         x=2;
-        System.out.println(y);
-
+        System.out.println("Checking The Value In Y:"+y);
+       System.out.println("Checking The Value In Y:"+x);
        // Slider #7:Primitive Types Vs Reference Types - Let's Understand then Reference Data Types: Point(1,1)
         //Let's consider the address is the pointer memory is 100, point 1 & point 2 are pointing to the same  memory address
        Point point1 =new Point(1,1);
-       Point point2=point1;
-       System.out.println(point2);
+       Point point2=point1;//Here when we assign point 1 to point 2 we're actu
+       point1.x=2;
+
+       System.out.println("Checking Point 2 Data:"+point2);
 
         //Slide #8: Primitive Types Vs Reference Types - Let's Understand String
         //Consider An example of a String Object. Pay attention to the message:"New String Is Redundant!! Warning"
@@ -187,6 +190,7 @@ public class JavaTypes {
         //Remember by convention: constant should be written in CAPITAL CASE PI instead of pi
 
         final float PI=3.14F;
+
         //pi=1
 
         //Slide #13: Arithmetic Expressions
