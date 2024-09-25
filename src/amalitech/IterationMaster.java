@@ -20,20 +20,21 @@ public class IterationMaster {
 
 
         //Example #2: Using For Loop - having A prio Knowledge on the number of iteration?? Reverse Order
-        for(int i=5;i>0;i--){
-            System.out.println("Hello World:"+i);
+        for(int i=5;i>=0;i--){
+            System.out.println("Hello World: "+i);
         }
 
         //Slide #31: While Loops
         String input="";
         Scanner scanner=new Scanner(System.in);
         while(!input.equals("quit")){
-            //10 scanner in our memeroy do pollute our memory – bad practices??
+            //10 scanner in our memory do pollute our memory – bad practices??
             System.out.println("Input:");
             //Scanner scanner=new Scanner(System.in);
             //When a client input UPPER Value??
             input=scanner.next().toLowerCase();
             System.out.println(input);
+
         }
 
         //Slide #32: Do While Loops
@@ -67,21 +68,11 @@ public class IterationMaster {
         String[] fruits={"Apple","Mango","Orange"};
 
         //Example #1: Using For Loop
-        for(int i=0;i<fruits.length;i++){
-            System.out.println("Fruit:"+fruits[i]);
+        for (String fruit : fruits) {
+            System.out.println("Fruit:" + fruit);
         }
 
-        for(String fruit:fruits){
-            System.out.println(fruit);
-        }
-
-
-
-
-
-
-
-
+        scanner.close();
 
     }
 }

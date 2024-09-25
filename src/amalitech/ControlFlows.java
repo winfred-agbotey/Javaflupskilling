@@ -6,38 +6,37 @@ package amalitech;
  * 2. Logical Operators
  * 3. Conditional Statement
  * 4. Loops
- *
- * */
+ */
 public class ControlFlows {
 
-    public static  void main(String...args){
+    public static void main(String... args) {
         //Slide #20:Let's dive into Conditional Operators
         //Bolean operation & inequality operation
         //Are we comparing x & y here?
-        int x=1;
-        int y=1;
-        System.out.println(x==y);
+        int x = 1;
+        int y = 1;
+        System.out.println(x == y);
 
         //Are we comparing x & y here?
-        System.out.println(x!=y);
-        System.out.println(x<y);
+        System.out.println(x != y);
+        System.out.println(x < y);
 
         //Slide #21:Logical Operators
-        int a=1;
-        int b=2;
-        System.out.println(a<=b);
+        int a = 1;
+        int b = 2;
+        System.out.println(!(a <= b));
 
-        int temperature=12;
-        boolean isWarm=temperature>20 && temperature <30;
-        System.out.println(isWarm);
+        int temperature = 12;
+        boolean isWarm = temperature > 20 && temperature < 30;
+        System.out.println(!(isWarm));
 
-        boolean hasHighIncome=false;
-        boolean hasGoodCredit=true;
-        //boolean isEligible= hasHighIncome || hasGoodCredit;
+        boolean hasHighIncome = false;
+        boolean hasGoodCredit = true;
+//        boolean isEligible= hasHighIncome || hasGoodCredit;
 
         //Let's add another variable: hasCriminalRecord
-        boolean hasCriminalRecord=false;
-        boolean isEligible= (hasHighIncome || hasGoodCredit) && !hasCriminalRecord;
+        boolean hasCriminalRecord = false;
+        boolean isEligible = (hasHighIncome || hasGoodCredit) && !hasCriminalRecord;
         System.out.println(isEligible);
 
 
@@ -52,90 +51,87 @@ public class ControlFlows {
          * Otherwise
          * It's cold
          * */
-        int temp=32;
-
-        if(temp>30) {
-            System.out.println("It's a hot day");
-            System.out.println("Drink Water");
-            //We can remove : && temp<=30
-        }else if(temp>20){
-            System.out.println("Beautiful Day");
-        }else{
-            System.out.println("Cold Day");
-        }
+        int temp = 30;
+        checkTemperature(temp);
 
         //Slide #23:Simplifying If Statement
         //Any observed Error - Declaration is not Allowed under a function?
-        int income=120_000;
-        //How Can we Improve the code as Professional Developer??
+        // How Can we Improve the code as Professional Developer??
         //Add an initial value
 
-        boolean hasHigherIncome=income>100_000;
+        boolean hasHigherIncome = simplifyIf();
 
-        /*
-        //Remove this code for better clean
-        if(income>100_000)
-            hasHigherIncome=true;
-         */
-        /*
-        remove this for unnecessary code
-        else
-            hasHigherIncome=false;
-            */
-
-        //System.out.println(hasHigherIncome); What is a variable scope???
+        System.out.println(hasHigherIncome);
 
         //Can we improve the code using ternary operation??
         //Example:#1
-        int incomeTwo=120_000;
-        String className;
-        if(incomeTwo>100_000)
-            className="First";
-        else
-            className="Economy";
+        int incomeTwo = 120_000;
+        String className = ternaryEx1(incomeTwo);
+        System.out.println(className);
 
         //Example:#1
-        int incomeThree=120_000;
-        String classNameTwo="Economy";
-        if(incomeThree>100_000)
-            classNameTwo="First";
+        int incomeThree = 120_000;
+        String classNameThree = ternaryEx2(incomeThree);
+        System.out.println(classNameThree);
 
-        //Example:#2
-        int incomeFour=120_000;
-        String classNameFour=incomeThree>100_000?"First":"Economy";
+
+        //Example:#3
+        int incomeFour = 120_000;
+        String classNameFour = ternaryEx3(incomeFour);
+        System.out.println(classNameFour);
+
 
         //Slide #24:Switch Statement
+        String role = "Admin";
         //Example #1:
-        String role="Admin";
-        if(role=="Admin"){
-            System.out.println("You're An Admin");
-        }else if(role=="Moderator"){
-            System.out.println("You're An Administrator");
-        }else{
-            System.out.println("You're A guest");
-        }
+        switchStatementEX1(role);
 
         //Example #2:
+        switchStatementEX2(role);
+    }
 
-        switch (role) {
-            case "Admin":
-                System.out.println("You're An Admin");
-                break;
-            case "Moderator":
-                System.out.println("You're A Moderator");
-                break;
-            default:
-                System.out.println("You're A Guest");
-
+    public static boolean simplifyIf(){
+        int income = 120_000;
+        return income > 100_000;
+    }
+    public static void checkTemperature(int temp){
+        if (temp > 30) {
+            System.out.println("It's a hot day");
+            System.out.println("Drink Water");
+            //We can remove : && temp<=30
+        } else if (temp >= 20) {
+            System.out.println("Beautiful Day");
+        } else {
+            System.out.println("Cold Day");
         }
+    }
 
+    public static String ternaryEx1(int incomeTwo) {
+        return incomeTwo > 100_000 ? "First":"Economy";
+    }
 
+    public static String ternaryEx2(int incomeThree) {
+        String classNameTwo = "Economy";
+        return incomeThree > 100_000 ? "First" : classNameTwo;
+    }
 
+    public static String ternaryEx3(int incomeFour) {
+        return incomeFour > 100_000 ? "First" : "Economy";
+    }
 
+    public static void switchStatementEX1(String role) {
+        switch (role) {
+            case "Admin" -> System.out.println("You're an Admin");
+            case "Moderator" -> System.out.println("You're a Moderator");
+            default -> System.out.println("You're a guest");
+        }
+    }
 
-
-
-
-
+    public static void switchStatementEX2(String role) {
+        switch (role) {
+            case "Admin" -> System.out.println("You're an Admin");
+            case "Moderator" -> System.out.println("You're a Moderator");
+            default -> System.out.println("You're a guest");
+        }
     }
 }
